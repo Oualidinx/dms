@@ -6,6 +6,8 @@ from flask_restplus import Api
 from configuration import config
 from flask_babel import Babel, _
 
+from flask_babel import lazy_gettext as _l
+
 db = SQLAlchemy()
 mail = Mail()
 babel = Babel()
