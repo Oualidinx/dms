@@ -6,17 +6,18 @@ import jwt
 from flask import current_app
 from main_app import _l
 
+
 class User(UserMixin, db.Model):
     id = db.Column(db.Integer, primary_key=True)
     username = db.Column(db.String(255), unique=True, nullable=False, index=True)
     first_name = db.Column(db.String(255), unique=True, nullable=False)
-    last_name = db.Column(db.Stirng(255), unique=True, nullable=False)
+    last_name = db.Column(db.String(255), unique=True, nullable=False)
     email = db.Column(db.String(255), unique=True, index=True, nullable=False)
     picture = db.Column(db.String(255))
     password_hash = db.Column(db.String(512), nullable=False)
     verified = db.Column(db.Boolean, default=False)
     created_at = db.Column(db.DateTime, default=datetime.utcnow())
-    last_access = db.Column(db.Datetime, default=datetime.utcnow())
+    last_access = db.Column(db.DateTime, default=datetime.utcnow())
     phone_number = db.Column(db.String(10), nullable=False, unique=True, index=True)
     token = db.Column(db.String(256), nullable=False, unique=True)
     token_expiration = db.Column(db.DateTime)
